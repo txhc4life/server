@@ -6,13 +6,9 @@ use std::error::Error;
 use std::fmt::{Display, Formatter, Result as FmtResult, Debug};
 
 pub struct Request {
-    path: String,
-    query_string: Option<String>,
+    path: &str,
+    query_string: Option<&str>,
     method: Method,
-}
-
-impl Request {
-    fn from_byte_array(buf: &[u8]) -> Result<Self, String> {}
 }
 
 impl TryFrom<&[u8]> for Request{
@@ -38,7 +34,11 @@ impl TryFrom<&[u8]> for Request{
             path = &path[..i]
         }
 
-        unimplemented!()
+        Ok(Self {
+            path: path,
+            query_string,
+            method
+        })
     }
 }
 
