@@ -1,4 +1,4 @@
-use std::fmt::{Display, Formatter, Result as FmtResult, write};
+use std::fmt::{Display, Formatter, Result as FmtResult, Write};
 
 #[derive(Copy, Clone, Debug)]
 pub enum StatusCode {
