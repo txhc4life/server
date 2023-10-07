@@ -19,7 +19,7 @@ impl<'buf> Request<'buf> {
     }
 
     pub fn method(&self) -> &Method {
-        self.method
+        &self.method
     }
 
     pub fn query_string(&self) -> Option<&QueryString> {
